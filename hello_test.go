@@ -13,15 +13,22 @@ func TestHello(t *testing.T) {
 	}
 
 	t.Run("hello with non-empty argument", func(t *testing.T) {
-		got := Hello("Abiola")
-		want := "Hello, Abiola"
+		got := Hello("Abiola", "yoruba")
+		want := "Enle, Abiola"
 
 		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("hello with empty argument", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, Testing"
+
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("hello in hausa", func(t *testing.T) {
+		got := Hello("Abiola", "hausa")
+		want := "Saanu, Abiola"
 
 		assertCorrectMessage(t, got, want)
 	})
